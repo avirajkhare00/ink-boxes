@@ -14,3 +14,10 @@ Ink boxes are a collection of helpful Ink smart contract boilerplates along with
  - Add smart contract address in the same name as ink box name and place ui inside ui directory.
  - Create a Pull Request.
  - Once your PR is merged, it will be live on the website.
+
+### FAQ
+
+Q. ERROR: No 'ink_lang' dependency found
+
+A. This should do the trick for you: `cargo install cargo-contract --version 2.0.0-alpha.5`
+
