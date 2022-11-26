@@ -13,8 +13,8 @@ Run `npm test` to test the code.
 Run the following commands to run docker container
 
 ```bash
-    docker build -t name-you-want .
-    docker run -dp 3000:3000 name-you-want
+docker build -t name-you-want .
+docker run -dp 3000:3000 name-you-want
 ```
 
 ## Run the development server
