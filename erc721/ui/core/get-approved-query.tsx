@@ -2,17 +2,17 @@ import { ContractPromise } from '@polkadot/api-contract'
 
 const gasLimit = 1000000000001;
 const storageDepositLimit = null;
+// const [value, setValue] = useState('');
 
-const approveQuery = async (contract: ContractPromise, address: string, amount: Number) => {
+const getApprovedQuery = async (contract: ContractPromise, address: string, tokenID: number) => {
     // (We perform the send from an account, here using Alice's address)
-    const { gasRequired, result, output } = await contract.query.approve(
+    const { gasRequired, result, output } = await contract.query.getApproved(
       address,
       {
         gasLimit,
         storageDepositLimit,
       },
-      address,
-      amount
+      tokenID
     );
 
     // The actual result from RPC as `ContractExecResult`
@@ -27,11 +27,13 @@ const approveQuery = async (contract: ContractPromise, address: string, amount: 
       console.log('Success', output?.toHuman());
 
       if (output) {
-        (document.getElementById('approveOutput') as HTMLInputElement).value = output?.toString();
+        // setValue(output?.toString());
+        console.log(output?.toString());
+        (document.getElementById('getApprovedOutput') as HTMLInputElement).value = output?.toString();
       }
     } else {
       console.error('Error', result.asErr);
     }
   }
 
-export default approveQuery;
+export default getApprovedQuery;

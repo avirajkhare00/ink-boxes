@@ -29,7 +29,7 @@ const balanceOfQuery = async (contract: ContractPromise, address: string) => {
       if (output) {
         // setValue(output?.toString());
         console.log(output?.toString());
-        (document.getElementById('output') as HTMLInputElement).innerText = output?.toString();
+        (document.getElementById('balanceOfOutput') as HTMLInputElement).value = output?.toString();
       }
     } else {
       console.error('Error', result.asErr);

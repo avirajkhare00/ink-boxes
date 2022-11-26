@@ -26,10 +26,10 @@ const mintQuery = async (contract: ContractPromise, address: string, tokenId: Nu
       console.log('Success', output?.toHuman());
 
       if (output) {
-        (document.getElementById('output') as HTMLInputElement).innerText = output?.toString();
+        (document.getElementById('mintOutput') as HTMLInputElement).value = output?.toString();
       }
     } else {
-      console.error('Error', result.asErr);
+      console.error('Error', result.asErr.value);
     }
   }
 
