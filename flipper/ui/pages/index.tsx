@@ -7,13 +7,14 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import abiData from '../abi/flipper-contract-abi'
 
+import { Row, Col, Input, Button } from 'reactstrap';
+
 const WS_PROVIDER = 'ws://127.0.0.1:9944'
 const gasLimit = 1000000000001;
 const storageDepositLimit = null;
 
 const Home: NextPage = () => {
   const [address, setAddress] = useState('');
-  const [addressSubmitted, setAddressSubmitted] = useState(false);
   const [value, setValue] = useState('');
 
   const query = async (contract: ContractPromise, address: string) => {
@@ -77,9 +78,14 @@ const Home: NextPage = () => {
     await query(contract, alice.address);
   }
 
+  function submitSmartContractAddress () {
+    let smartContractAddress = (document.getElementById('smartContractAddress') as HTMLInputElement)?.value;
+    setAddress(smartContractAddress);
+  }
+
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Flipper Contract</title>
         <meta name="description" content="Flipper Contract" />
@@ -87,28 +93,21 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        {addressSubmitted ? <>
-          <h3 className={styles.title}>
-            Flipper Contract
-          </h3>
-
-          <button id='flip' onClick={flip}>Flip</button>
-
-          <h4>{value}</h4>
-        </> :
         <>
-          <h3 className={styles.title}>
-            Provide Contract Address
-          </h3>
-          <div className={styles.address}>
-            <input
-              type="text"
-              value={address}
-              onChange={e => setAddress(e.target.value)}
-            />
-            <button onClick={e => setAddressSubmitted(true)}>Set</button>
-          </div>
-        </>}
+          <Row>
+            <Col md='2'></Col>
+            <Col md='8'>
+              <h1>Flipper</h1>
+              <h3>Enter Smart Contract Address</h3>
+              <Input id='smartContractAddress' />
+              <Button onClick={submitSmartContractAddress} color='primary'>Submit</Button>
+              <h3>Value: {value}</h3>
+              <h3>Press button below to flip the value</h3>
+              <Button onClick={flip} color='primary'>Flip</Button>
+            </Col>
+            <Col md='2'></Col>
+          </Row>
+        </>
       </main>
     </div>
   )
