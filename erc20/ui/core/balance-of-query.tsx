@@ -4,7 +4,7 @@ const gasLimit = 1000000000001;
 const storageDepositLimit = null;
 // const [value, setValue] = useState('');
 
-const balanceOfQuery = async (contract: ContractPromise, address: string) => {
+const balanceOfQuery = async (contract: ContractPromise, address: string, balanceOfAddress: string) => {
     // (We perform the send from an account, here using Alice's address)
     const { gasRequired, result, output } = await contract.query.balanceOf(
       address,
@@ -12,7 +12,7 @@ const balanceOfQuery = async (contract: ContractPromise, address: string) => {
         gasLimit,
         storageDepositLimit,
       },
-      address
+      balanceOfAddress
     );
 
     // The actual result from RPC as `ContractExecResult`
@@ -29,7 +29,7 @@ const balanceOfQuery = async (contract: ContractPromise, address: string) => {
       if (output) {
         // setValue(output?.toString());
         console.log(output?.toString());
-        (document.getElementById('output') as HTMLInputElement).innerText = output?.toString();
+        (document.getElementById('balanceOfOutput') as HTMLInputElement).value = output?.toString();
       }
     } else {
       console.error('Error', result.asErr);

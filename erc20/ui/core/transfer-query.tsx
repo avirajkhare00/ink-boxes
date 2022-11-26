@@ -27,7 +27,7 @@ const transferQuery = async (contract: ContractPromise, address: string, amount:
       console.log('Success', output?.toHuman());
 
       if (output) {
-        (document.getElementById('output') as HTMLInputElement).innerText = output?.toString();
+        (document.getElementById('transferResult') as HTMLInputElement).value = output?.toString();
       }
     } else {
       console.error('Error', result.asErr);
