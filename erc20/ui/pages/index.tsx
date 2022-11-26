@@ -249,17 +249,9 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1>ERC-20 Contract</h1>
         <Form>
-          {/* 
-            Total Supply
-            Balance Of
-            Allowance
-            Transfer
-            Approve
-            Transfer From
-          */}
           <FormGroup>
             <Label for="address">
-              Enter Address
+              Enter Smart Contract Address
             </Label>
             <Input id="address"></Input>
             <Button color='primary' onClick={submitAddress}>Submit</Button>
