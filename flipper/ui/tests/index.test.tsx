@@ -26,7 +26,10 @@ describe("Flipper", () => {
         expect(flip).toHaveBeenCalled();
     });
     it("should get smart contract output value from input field", async () => {
-        const submitSmartContractAddress = jest.fn();
+        const submitSmartContractAddress = () => {
+            let smartContractAddress = (document.getElementById('smartContractAddress') as HTMLInputElement)?.value;
+            (document.getElementById('smartContractOutput') as HTMLInputElement).value = smartContractAddress;
+          }
         render(
             <div>
                 <h3>Enter Smart Contract Address</h3>
@@ -36,9 +39,9 @@ describe("Flipper", () => {
                 <Input id="smartContractOutput" disabled></Input>
             </div>
         );
-        await userEvent.click(screen.getByText("Submit"));
         (document.getElementById("smartContractAddress") as HTMLInputElement).value = "abcd123"
-        const smartContractInput = document.getElementById("smartContractAddress");
+        await userEvent.click(screen.getByText("Submit"));
+        const smartContractInput = document.getElementById("smartContractOutput");
         expect((smartContractInput as HTMLInputElement).value).toEqual("abcd123");
     });
 });
