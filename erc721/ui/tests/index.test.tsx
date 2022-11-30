@@ -2,7 +2,7 @@ import Home from "../pages/index";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
-import { Button } from 'reactstrap';
+import { Button, FormGroup, Label, Input } from 'reactstrap';
 
 describe("ERC721", () => {
 
@@ -90,6 +90,28 @@ describe("ERC721", () => {
             render(<Button color='primary' onClick={mint}>Submit</Button>);
             await userEvent.click(screen.getByText("Submit"));
             expect(mint).toHaveBeenCalled();
+        });
+        it("should get smart contract output value from input field", async () => {
+            const submitAddress = () => {
+                let smartContractAddress = (document.getElementById('address') as HTMLInputElement)?.value;
+                (document.getElementById('smartContractOutput') as HTMLInputElement).value = smartContractAddress;
+            }
+            render(
+                <FormGroup>
+                    <Label for="address">
+                        Enter Smart Contract Address
+                    </Label>
+                    <Input id="address"></Input>
+                    <Button color='primary' onClick={submitAddress}>Submit</Button>
+                    <br />
+                    Smart Contract Address
+                    <Input id="smartContractOutput" disabled></Input>
+                </FormGroup>
+            );
+            (document.getElementById("address") as HTMLInputElement).value = "abcd123"
+            await userEvent.click(screen.getByText("Submit"));
+            const smartContractInput = document.getElementById("smartContractOutput");
+            expect((smartContractInput as HTMLInputElement).value).toEqual("abcd123");
         });
     });
 });
