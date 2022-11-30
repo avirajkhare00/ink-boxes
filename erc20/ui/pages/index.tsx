@@ -61,7 +61,7 @@ const Home: NextPage = () => {
         }
       });
 
-      await allowanceQuery(contract, address, ownerAddress, spenderAddress);
+    await allowanceQuery(contract, address, ownerAddress, spenderAddress);
   }
 
   const totalSupply = async () => {
@@ -127,7 +127,7 @@ const Home: NextPage = () => {
         }
       });
 
-      await balanceOfQuery(contract, address, inputAddress);
+    await balanceOfQuery(contract, address, inputAddress);
   }
 
   const approve = async () => {
@@ -259,8 +259,8 @@ const Home: NextPage = () => {
             <br />
             Smart Contract Address
             <Input id="smartContractOutput" disabled></Input>
-            </FormGroup>
-            <FormGroup>
+          </FormGroup>
+          <FormGroup>
             <Label for="totalSupply">
               Total Supply
             </Label>
