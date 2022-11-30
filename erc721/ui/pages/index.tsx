@@ -26,6 +26,7 @@ const Home: NextPage = () => {
 
   const submitAddress = () => {
     const address = (document.getElementById('address') as HTMLInputElement).value;
+    (document.getElementById('smartContractOutput') as HTMLInputElement).value = address;
     setAddress(address);
   }
 
@@ -292,6 +293,9 @@ const Home: NextPage = () => {
             </Label>
             <Input id="address"></Input>
             <Button color='primary' onClick={submitAddress}>Submit</Button>
+            <br />
+            Smart Contract Address
+            <Input id="smartContractOutput" disabled></Input>
           </FormGroup>
           <FormGroup>
             <Label for="balanceOf">

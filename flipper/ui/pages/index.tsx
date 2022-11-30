@@ -80,6 +80,7 @@ const Home: NextPage = () => {
 
   function submitSmartContractAddress () {
     let smartContractAddress = (document.getElementById('smartContractAddress') as HTMLInputElement)?.value;
+    (document.getElementById('smartContractOutput') as HTMLInputElement).value = smartContractAddress;
     setAddress(smartContractAddress);
   }
 
@@ -101,6 +102,8 @@ const Home: NextPage = () => {
               <h3>Enter Smart Contract Address</h3>
               <Input id='smartContractAddress' />
               <Button onClick={submitSmartContractAddress} color='primary'>Submit</Button>
+              <h3>Smart Contract Address</h3>
+              <Input id="smartContractOutput" disabled></Input>
               <h3>Value: {value}</h3>
               <h3>Press button below to flip the value</h3>
               <Button onClick={flip} color='primary'>Flip</Button>
