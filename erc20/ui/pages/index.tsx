@@ -255,7 +255,7 @@ const Home: NextPage = () => {
               Enter Smart Contract Address
             </Label>
             <Input id="address"></Input>
-            <Button color='primary' onClick={submitAddress}>Submit</Button>
+            <Button id='submitBtn' color='primary' onClick={submitAddress}>Submit</Button>
             <br />
             Smart Contract Address
             <Input id="smartContractOutput" disabled></Input>
@@ -265,14 +265,14 @@ const Home: NextPage = () => {
               Total Supply
             </Label>
             <Input id="totalSupply" disabled></Input>
-            <Button color='primary' onClick={totalSupply}>Submit</Button>
+            <Button id="totalSupplyBtn" color='primary' onClick={totalSupply}>Submit</Button>
           </FormGroup>
           <FormGroup>
             <Label for="balanceOf">
               Balance Of
             </Label>
             <Input id="balanceOfAddress" placeholder="Enter Address" type="text"></Input>
-            <Button color='primary' onClick={balanceOf}>Submit</Button>
+            <Button id='balanceOfBtn' color='primary' onClick={balanceOf}>Submit</Button>
             <Input id="balanceOfOutput" disabled></Input>
           </FormGroup>
           <FormGroup>
@@ -281,7 +281,7 @@ const Home: NextPage = () => {
             </Label>
             <Input id="ownerAddress" placeholder="Enter Owner address"></Input>
             <Input id="spenderAddress" placeholder="Enter Spender address"></Input>
-            <Button color="primary" onClick={allowance}>Submit</Button>
+            <Button id='allowanceBtn' color="primary" onClick={allowance}>Submit</Button>
             <Input id="allowanceResult" disabled></Input>
           </FormGroup>
           <FormGroup>
@@ -290,7 +290,7 @@ const Home: NextPage = () => {
             </Label>
             <Input id="spenderApproveAddress" placeholder="Enter Spender address"></Input>
             <Input id="spenderApproveBalance" placeholder="Enter Balance" type="number"></Input>
-            <Button color="primary" onClick={approve}>Submit</Button>
+            <Button id='approveBtn' color="primary" onClick={approve}>Submit</Button>
             <Input id="approveResult" disabled></Input>
           </FormGroup>
           <FormGroup>
@@ -299,7 +299,7 @@ const Home: NextPage = () => {
             </Label>
             <Input id="transferTo" placeholder="Enter address"></Input>
             <Input id="transferBalance" placeholder="Enter balance"></Input>
-            <Button color="primary" onClick={transfer}>Submit</Button>
+            <Button id='transferBtn' color="primary" onClick={transfer}>Submit</Button>
             <Input id="transferResult" disabled></Input>
           </FormGroup>
           <FormGroup>
@@ -309,7 +309,7 @@ const Home: NextPage = () => {
             <Input id="transferFromFrom" placeholder="From address"></Input>
             <Input id="transferFromTo" placeholder="To address"></Input>
             <Input id="transferFromBalance" placeholder="Amount" type="number"></Input>
-            <Button color="primary" onClick={transferFrom}>Submit</Button>
+            <Button id='transferFromBtn' color="primary" onClick={transferFrom}>Submit</Button>
             <Input id="transferFromResult" disabled></Input>
           </FormGroup>
         </Form>
