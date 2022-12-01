@@ -292,7 +292,7 @@ const Home: NextPage = () => {
               Enter Smart Contract Address
             </Label>
             <Input id="address"></Input>
-            <Button color='primary' onClick={submitAddress}>Submit</Button>
+            <Button id='submitAddressBtn' color='primary' onClick={submitAddress}>Submit</Button>
             <br />
             Smart Contract Address
             <Input id="smartContractOutput" disabled></Input>
@@ -302,7 +302,7 @@ const Home: NextPage = () => {
               Balance Of
             </Label>
             <Input id="balanceOf" placeholder="Enter address"></Input>
-            <Button color='primary' onClick={balanceOf}>Submit</Button>
+            <Button id='balanceOfBtn' color='primary' onClick={balanceOf}>Submit</Button>
             <br />
             <Label for="balanceOfOutput">
               Output
@@ -314,7 +314,7 @@ const Home: NextPage = () => {
               Owner Of
             </Label>
             <Input id="ownerOf" placeholder="Enter token ID"></Input>
-            <Button color='primary' onClick={ownerOf}>Submit</Button>
+            <Button id='ownerOfBtn' color='primary' onClick={ownerOf}>Submit</Button>
             <br />
             <Label for="ownerOfOutput">
               Output
@@ -326,7 +326,7 @@ const Home: NextPage = () => {
               Get Approved
             </Label>
             <Input id="getApproved" placeholder="Enter token ID" type="number"></Input>
-            <Button color='primary' onClick={getApproved}>Submit</Button>
+            <Button id='getApprovedBtn' color='primary' onClick={getApproved}>Submit</Button>
             <br />
             <Label for="getApprovedOutput">
               Output
@@ -339,7 +339,7 @@ const Home: NextPage = () => {
             </Label>
             <Input id="approveAddress" placeholder="Enter approval address"></Input>
             <Input id="approveTokenId" placeholder="Enter token ID"></Input>
-            <Button color='primary' onClick={approve}>Submit</Button>
+            <Button id='approveBtn' color='primary' onClick={approve}>Submit</Button>
             <br />
             <Label for="approveOutput">
               Output
@@ -352,7 +352,7 @@ const Home: NextPage = () => {
             </Label>
             <Input id="transferAddress" placeholder="Enter transfer address"></Input>
             <Input id="transferTokenId" placeholder="Enter token ID"></Input>
-            <Button color='primary' onClick={transfer}>Submit</Button>
+            <Button id='transferBtn' color='primary' onClick={transfer}>Submit</Button>
             <br />
             <Label for="transferOutput">
               Output
@@ -366,7 +366,7 @@ const Home: NextPage = () => {
             <Input id="transferFromFromAddress" placeholder="Enter transfer from address"></Input>
             <Input id="transferFromToAddress" placeholder="Enter transfer to address"></Input>
             <Input id="transferFromTokenId" placeholder="Enter token ID"></Input>
-            <Button color='primary' onClick={transferFrom}>Submit</Button>
+            <Button id='transferFromBtn' color='primary' onClick={transferFrom}>Submit</Button>
             <br />
             <Label for="transferFromOutput">
               Output
@@ -378,7 +378,7 @@ const Home: NextPage = () => {
               Mint
             </Label>
             <Input id="mintTokenId" placeholder="Enter token ID"></Input>
-            <Button color='primary' onClick={mint}>Submit</Button>
+            <Button id='mintTokenBtn' color='primary' onClick={mint}>Submit</Button>
             <br />
             <Label for="mintOutput">
               Output
