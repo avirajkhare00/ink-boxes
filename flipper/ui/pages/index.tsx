@@ -101,12 +101,12 @@ const Home: NextPage = () => {
               <h1>Flipper</h1>
               <h3>Enter Smart Contract Address</h3>
               <Input id='smartContractAddress' />
-              <Button onClick={submitSmartContractAddress} color='primary'>Submit</Button>
+              <Button id='submitBtn' onClick={submitSmartContractAddress} color='primary'>Submit</Button>
               <h3>Smart Contract Address</h3>
               <Input id="smartContractOutput" disabled></Input>
-              <h3>Value: {value}</h3>
+              <h3>Value: <div id="flipOutput">{value}</div></h3>
               <h3>Press button below to flip the value</h3>
-              <Button onClick={flip} color='primary'>Flip</Button>
+              <Button id='flipBtn' onClick={flip} color='primary'>Flip</Button>
             </Col>
             <Col md='2'></Col>
           </Row>
