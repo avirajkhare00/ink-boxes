@@ -1,4 +1,4 @@
-# Flipper UI
+# ERC20 UI
 
 ## Installation
 
@@ -10,7 +10,7 @@ Run `npm test` to test the code.
 
 ## Run e2e tests using cypress
 
- - Instantiate flipper smart contract from substrate UI.
+ - Instantiate ERC20 smart contract from substrate UI.
  - goto `cypress/e2e/spec.cy.ts` file and update the smart contract address you got from the UI.
  - Replace wallet addresses with the addresses of your choice.
  - Run the dev server by running command: `npm run dev`.
