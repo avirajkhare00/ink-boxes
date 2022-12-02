@@ -1,37 +1,43 @@
 describe('ERC20', () => {
+  const contractAddress = '5Fh6cF6VD6mztrfqj4gLA3xzWzE9urCpHGiXBJPy1Vi2SDiE';
+  const deployer = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'; // default is Alice
+  const spender = '5Hai2MHPBu61Djh5LnEb9EQmYBiYDaRMm6NqderZFGt71Nvw';
+  const amount = '100';
   it('opens up webpage successfully', () => {
     cy.visit('http://127.0.0.1:3000/');
   });
   it('enters smart contract address in input and presses submit button', () => {
-    cy.get('#address').type('5CkvEE9Eo2uuj6WbZGakTquM2eYGULGrr8okztHAP4v2hUTM'); // enter smart contract here
+    cy.get('#address').type(contractAddress);
     cy.get('#submitBtn').click();
   });
   it('checks the total supply', () => {
     cy.get('#totalSupplyBtn').click();
   });
   it('checks balance of given address', () => {
-    cy.get('#balanceOfAddress').type('5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'); // change it to the address
+    cy.get('#balanceOfAddress').type(deployer);
     cy.get('#balanceOfBtn').click();
   });
   it('checks the allowance from owner to given address', () => {
-    cy.get('#ownerAddress').type('5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'); // change this address
-    cy.get('#spenderAddress').type('5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty'); // change this address
+    cy.get('#ownerAddress').type(deployer);
+    cy.get('#spenderAddress').type(spender);
     cy.get('#allowanceBtn').click();
   });
   it('approves given balance to an address', () => {
-    cy.get('#spenderApproveAddress').type('5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty'); // change this address
-    cy.get('#spenderApproveBalance').type('1000') // change it to desired amount
+    cy.get('#spenderApproveAddress').type(spender);
+    cy.get('#spenderApproveBalance').type(amount)
     cy.get('#approveBtn').click();
   });
   it('should transfer to given address', () => {
-    cy.get('#transferTo').type('5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty'); // change this address
-    cy.get('#transferBalance').type('100') // change it to desired amount
+    cy.get('#transferTo').type(spender);
+    cy.get('#transferBalance').type(amount)
     cy.get('#transferBtn').click();
   });
   it('should transfer from a given address to a given address', () => {
-    cy.get('#transferFromFrom').type('5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'); // change this address
-    cy.get('#transferFromTo').type('5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty'); // change this address
-    cy.get('#transferFromBalance').type('10'); // change it to desired amount
+    cy.get('#transferFromFrom').type(deployer);
+    cy.get('#transferFromTo').type(spender);
+    cy.get('#transferFromBalance').type(amount);
     cy.get('#transferFromBtn').click();
   });
 })
+
+export {}

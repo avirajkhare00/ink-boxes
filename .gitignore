@@ -1,0 +1,11 @@
+erc20/ui/cypress/screenshots
+erc20/ui/cypress/videos
+erc721/ui/cypress/screenshots
+erc721/ui/cypress/videos
+flipper/ui/cypress/screenshots
+flipper/ui/cypress/videos
+
+.DS_Store
+erc20/.DS_Store
+erc721/.DS_Store
+flipper/.DS_Store
