@@ -17,6 +17,8 @@ Run `npm test` to test the code.
  - Run the cypress by running command: `npx cypress open`, if you want it using cli mode then use `npx cypress run`.
  - Run all the tests.
 
+Note: Test doesn't work successfully for the first time. You need to run the tests for the second time.
+
 ## Run docker
 
 Run the following commands to run docker container
