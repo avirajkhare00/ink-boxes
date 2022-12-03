@@ -346,7 +346,7 @@ const Home: NextPage = () => {
               Transfer
             </Label>
             <Input id="transferAddress" placeholder="Enter transfer address"></Input>
-            <Input id="transferTokenId" placeholder="Enter token ID"></Input>
+            <Input id="transferTokenId" placeholder="Enter token ID" type='number'></Input>
             <Button id='transferBtn' color='primary' onClick={transfer}>Submit</Button>
             <br />
             <Label for="transferOutput">
@@ -360,7 +360,7 @@ const Home: NextPage = () => {
             </Label>
             <Input id="transferFromFromAddress" placeholder="Enter transfer from address"></Input>
             <Input id="transferFromToAddress" placeholder="Enter transfer to address"></Input>
-            <Input id="transferFromTokenId" placeholder="Enter token ID"></Input>
+            <Input id="transferFromTokenId" placeholder="Enter token ID" type='number'></Input>
             <Button id='transferFromBtn' color='primary' onClick={transferFrom}>Submit</Button>
             <br />
             <Label for="transferFromOutput">

@@ -1,5 +1,5 @@
 describe('ERC-721', () => {
-  const contractAddress = "5GMvAiSQMcJnyS87DURYaxfA3nc6uMaQdFfBSTqcmz7aoe8E"
+  const contractAddress = "5EMQLhACE3WPQJbqUtJfW4u2egrFSCtFer3rRmPmnewXxQ7E"
   const deployer = "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
   const spender = "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty"
   const tokenId = '0';
@@ -17,7 +17,6 @@ describe('ERC-721', () => {
   it('mints a new token', () => {
     cy.get('#mintTokenId').type(tokenId);
     cy.get('#mintTokenBtn').click();
-    cy.wait(1000); // wait for a second
   });
   it('checks balance of a given address', () => {
     cy.get('#balanceOf').type(deployer);
@@ -30,7 +29,8 @@ describe('ERC-721', () => {
     cy.get('#ownerOfOutput').invoke('val').should('eq', spender);
   });
   it('mints a new token', () => {
-    cy.get('#mintTokenId').type('5');
+    cy.get('#mintTokenId').clear();
+    cy.get('#mintTokenId').type(Math.floor(Math.random() * 100).toString());
     cy.get('#mintTokenBtn').click();
   });
   it('approves the token ID to caller', () => {
@@ -57,7 +57,8 @@ describe('ERC-721', () => {
     cy.get('#transferFromOutput').invoke('val').should('eq', 'Ok');
   });
   it('mints a new token', () => {
-    cy.get('#mintTokenId').type((parseInt(tokenId) + 10).toString());
+    cy.get('#mintTokenId').clear();
+    cy.get('#mintTokenId').type(Math.floor(Math.random() * 100).toString());
     cy.get('#mintTokenBtn').click();
   });
   // now we will check balance of token creator
