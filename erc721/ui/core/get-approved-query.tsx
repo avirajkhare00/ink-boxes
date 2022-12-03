@@ -29,7 +29,6 @@ const getApprovedQuery = async (contract: ContractPromise, address: string, toke
       if (output) {
         // setValue(output?.toString());
         console.log(output?.toString());
-        (document.getElementById('getApprovedOutput') as HTMLInputElement).value = output?.toString();
       }
     } else {
       console.error('Error', result.asErr);

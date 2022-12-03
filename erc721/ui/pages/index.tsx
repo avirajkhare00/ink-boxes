@@ -327,11 +327,6 @@ const Home: NextPage = () => {
             </Label>
             <Input id="getApproved" placeholder="Enter token ID" type="number"></Input>
             <Button id='getApprovedBtn' color='primary' onClick={getApproved}>Submit</Button>
-            <br />
-            <Label for="getApprovedOutput">
-              Output
-            </Label>
-            <Input id="getApprovedOutput" disabled type="text"></Input>
           </FormGroup>
           <FormGroup>
             <Label for="approve">
