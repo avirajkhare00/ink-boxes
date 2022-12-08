@@ -1,9 +1,10 @@
+const contractAddress = '5CndNG11K2AFwehHbXYtQdYZUFSRwyKpHNvGVELEuDyVJEBE';
+const deployer = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'; // default is Alice
+const spender = '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty';
+const amount = '100';
+const totalSupply = '10000000000000000';
+
 describe('ERC20', () => {
-  const contractAddress = '5Hh9PCWbByCFdZkYgxEn4uoLpDKwsQaEMzwsbCoCP66yGyZW';
-  const deployer = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'; // default is Alice
-  const spender = '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty';
-  const amount = '100';
-  const totalSupply = '1000000000000000';
   it('opens up webpage successfully', () => {
     cy.visit('http://127.0.0.1:3000/');
   });
@@ -20,19 +21,16 @@ describe('ERC20', () => {
     cy.get('#balanceOfAddress').type(deployer);
     cy.get('#balanceOfBtn').click();
     cy.get('#balanceOfOutput').invoke('val').should('match', /[0-9]/);
-
   });
-  it('checks the allowance from owner to given address', () => {
-    cy.get('#ownerAddress').type(deployer);
-    cy.get('#spenderAddress').type(spender);
-    cy.get('#allowanceBtn').click();
-    cy.get('#allowanceResult').invoke('val').should('match', /[0-9]/);
-  });
-  it('approves given balance to an address', () => {
-    cy.get('#spenderApproveAddress').type(deployer);
+  it('approves the balance to given address and then checks the allowance, they must be equal', () => {
+    cy.get('#spenderApproveAddress').type(spender);
     cy.get('#spenderApproveBalance').type('500');
     cy.get('#approveBtn').click();
     cy.get('#approveResult').invoke('val').should('eq', 'Ok')
+    cy.get('#ownerAddress').type(deployer);
+    cy.get('#spenderAddress').type(spender);
+    cy.get('#allowanceBtn').click();
+    cy.get('#allowanceResult').invoke('val').should('eq', '500');
   });
   it('should transfer to given address', () => {
     cy.get('#transferTo').type(spender);
@@ -40,7 +38,7 @@ describe('ERC20', () => {
     cy.get('#transferBtn').click();
     cy.get('#transferResult').invoke('val').should('eq', 'Ok');
   });
-  it('should transfer from a given address to a given address', () => {
+  it('should transfer from a given address to a given address once approval is done', () => {
     cy.get('#transferFromFrom').type(deployer);
     cy.get('#transferFromTo').type(spender);
     cy.get('#transferFromBalance').type(amount);
