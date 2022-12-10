@@ -3,8 +3,6 @@ describe('ERC-721', () => {
   const deployer = "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY";
   const spender = "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty";
   const tokenId = '0';
-  // If you'll use assertions to check the operation's outcome, you'll see
-  // the tests will fail, expecially if the contract has been just deployed.\
   it('opens up webpage', () => {
     cy.visit('http://127.0.0.1:3000/');
   });
