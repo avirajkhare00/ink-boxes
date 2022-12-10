@@ -1,4 +1,4 @@
-const contractAddress = '5CndNG11K2AFwehHbXYtQdYZUFSRwyKpHNvGVELEuDyVJEBE';
+const contractAddress = '5EnVHMKbtwEq9RVfibtC524o6HjVyBX7iXCzEG1stzYhLsEf';
 const deployer = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'; // default is Alice
 const spender = '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty';
 const amount = '100';
@@ -23,8 +23,11 @@ describe('ERC20', () => {
     cy.get('#balanceOfOutput').invoke('val').should('match', /[0-9]/);
   });
   it('approves the balance to given address and then checks the allowance, they must be equal', () => {
-    cy.get('#spenderApproveAddress').type(spender);
+    cy.get('#spenderApproveAddress').type(deployer);
     cy.get('#spenderApproveBalance').type('500');
+    cy.get('#approveBtn').click();
+    cy.get('#spenderApproveAddress').clear();
+    cy.get('#spenderApproveAddress').type(spender);
     cy.get('#approveBtn').click();
     cy.get('#approveResult').invoke('val').should('eq', 'Ok')
     cy.get('#ownerAddress').type(deployer);
