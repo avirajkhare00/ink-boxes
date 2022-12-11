@@ -1,4 +1,4 @@
-const contractAddress = '5EnVHMKbtwEq9RVfibtC524o6HjVyBX7iXCzEG1stzYhLsEf';
+const contractAddress = '5DSpuyDGzNiWE5T9e1EBYJPwL57AnCnjSCh2GmYN7HxTEy2F';
 const deployer = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'; // default is Alice
 const spender = '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty';
 const amount = '100';
@@ -36,7 +36,7 @@ describe('ERC20', () => {
     cy.get('#allowanceResult').invoke('val').should('eq', '500');
   });
   it('should transfer to given address', () => {
-    cy.get('#transferTo').type(spender);
+    cy.get('#transferTo').type(deployer);
     cy.get('#transferBalance').type(amount)
     cy.get('#transferBtn').click();
     cy.get('#transferResult').invoke('val').should('eq', 'Ok');
