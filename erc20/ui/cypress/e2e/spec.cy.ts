@@ -1,4 +1,4 @@
-const contractAddress = '5DSpuyDGzNiWE5T9e1EBYJPwL57AnCnjSCh2GmYN7HxTEy2F';
+const contractAddress = '5CsZyAkPczcCV8sp7JySd3fSu2iHmzeQ56svdevjMYY1LshM';
 const deployer = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY'; // default is Alice
 const spender = '5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty';
 const amount = '100';

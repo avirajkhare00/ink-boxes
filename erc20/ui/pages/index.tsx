@@ -5,7 +5,7 @@ import { Abi, ContractPromise } from '@polkadot/api-contract'
 
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, Col, Row } from 'reactstrap';
 
 import abiData from '../abi/erc20-contract-abi'
 import totalSupplyQuery from '../core/total-supply-query';
@@ -248,71 +248,105 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1>ERC-20 Contract</h1>
-        <Form>
-          <FormGroup>
-            <Label for="address">
-              Enter Smart Contract Address
-            </Label>
-            <Input id="address"></Input>
-            <Button id='submitBtn' color='primary' onClick={submitAddress}>Submit</Button>
-            <br />
-            Smart Contract Address
-            <Input id="smartContractOutput" disabled></Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="totalSupply">
-              Total Supply
-            </Label>
-            <Input id="totalSupply" disabled></Input>
-            <Button id="totalSupplyBtn" color='primary' onClick={totalSupply}>Submit</Button>
-          </FormGroup>
-          <FormGroup>
-            <Label for="balanceOf">
-              Balance Of
-            </Label>
-            <Input id="balanceOfAddress" placeholder="Enter Address" type="text"></Input>
-            <Button id='balanceOfBtn' color='primary' onClick={balanceOf}>Submit</Button>
-            <Input id="balanceOfOutput" disabled></Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="allowance">
-              Allowance
-            </Label>
-            <Input id="ownerAddress" placeholder="Enter Owner address"></Input>
-            <Input id="spenderAddress" placeholder="Enter Spender address"></Input>
-            <Button id='allowanceBtn' color="primary" onClick={allowance}>Submit</Button>
-            <Input id="allowanceResult" disabled></Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="approve">
-              Approve
-            </Label>
-            <Input id="spenderApproveAddress" placeholder="Enter Spender address"></Input>
-            <Input id="spenderApproveBalance" placeholder="Enter Balance" type="number"></Input>
-            <Button id='approveBtn' color="primary" onClick={approve}>Submit</Button>
-            <Input id="approveResult" disabled></Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="transfer">
-              Transfer
-            </Label>
-            <Input id="transferTo" placeholder="Enter address"></Input>
-            <Input id="transferBalance" placeholder="Enter balance"></Input>
-            <Button id='transferBtn' color="primary" onClick={transfer}>Submit</Button>
-            <Input id="transferResult" disabled></Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="transferFrom">
-              Transfer From
-            </Label>
-            <Input id="transferFromFrom" placeholder="From address"></Input>
-            <Input id="transferFromTo" placeholder="To address"></Input>
-            <Input id="transferFromBalance" placeholder="Amount" type="number"></Input>
-            <Button id='transferFromBtn' color="primary" onClick={transferFrom}>Submit</Button>
-            <Input id="transferFromResult" disabled></Input>
-          </FormGroup>
-        </Form>
+        <Row>
+          <Col md='2'></Col>
+          <Col md='8'>
+          <h1>ERC-20 Contract</h1>
+            <Form>
+              <FormGroup>
+                <Label for="address">
+                  Enter Smart Contract Address
+                  <br />
+                  <span style={{"fontSize": "12px"}}>
+                    Enter your erc20 smart contract address to use the UI.
+                  </span>
+                </Label>
+                <Input id="address"></Input>
+                <Button id='submitBtn' color='primary' onClick={submitAddress}>Submit</Button>
+                <br />
+                Smart Contract Address
+                <Input id="smartContractOutput" disabled></Input>
+              </FormGroup>
+              <FormGroup>
+                <Label for="totalSupply">
+                  Total Supply
+                  <br />
+                  <span style={{"fontSize": "12px"}}>
+                    Gives the total supply of a token.
+                  </span>
+                </Label>
+                <Input id="totalSupply" disabled></Input>
+                <Button id="totalSupplyBtn" color='primary' onClick={totalSupply}>Submit</Button>
+              </FormGroup>
+              <FormGroup>
+                <Label for="balanceOf">
+                  Balance Of
+                  <br />
+                  <span style={{"fontSize": "12px"}}>
+                    Gives balance of given address.
+                  </span>
+                </Label>
+                <Input id="balanceOfAddress" placeholder="Enter Address" type="text"></Input>
+                <Button id='balanceOfBtn' color='primary' onClick={balanceOf}>Submit</Button>
+                <Input id="balanceOfOutput" disabled></Input>
+              </FormGroup>
+              <FormGroup>
+                <Label for="allowance">
+                  Allowance
+                  <br />
+                  <span style={{"fontSize": "12px"}}>
+                    It is used to check how much spender can spend on behalf of owner.
+                  </span>
+                </Label>
+                <Input id="ownerAddress" placeholder="Enter Owner address"></Input>
+                <Input id="spenderAddress" placeholder="Enter Spender address"></Input>
+                <Button id='allowanceBtn' color="primary" onClick={allowance}>Submit</Button>
+                <Input id="allowanceResult" disabled></Input>
+              </FormGroup>
+              <FormGroup>
+                <Label for="approve">
+                  Approve
+                  <br />
+                  <span style={{"fontSize": "12px"}}>
+                    It is used to approve how much spender can spend on behalf of owner.
+                  </span>
+                </Label>
+                <Input id="spenderApproveAddress" placeholder="Enter Spender address"></Input>
+                <Input id="spenderApproveBalance" placeholder="Enter Balance" type="number"></Input>
+                <Button id='approveBtn' color="primary" onClick={approve}>Submit</Button>
+                <Input id="approveResult" disabled></Input>
+              </FormGroup>
+              <FormGroup>
+                <Label for="transfer">
+                  Transfer
+                  <br />
+                  <span style={{"fontSize": "12px"}}>
+                    It is used to transfer tokens to a given address.
+                  </span>
+                </Label>
+                <Input id="transferTo" placeholder="Enter address"></Input>
+                <Input id="transferBalance" placeholder="Enter balance"></Input>
+                <Button id='transferBtn' color="primary" onClick={transfer}>Submit</Button>
+                <Input id="transferResult" disabled></Input>
+              </FormGroup>
+              <FormGroup>
+                <Label for="transferFrom">
+                  Transfer From
+                  <br />
+                  <span style={{"fontSize": "12px"}}>
+                    It is used to transfer tokens from a given address to a given address.
+                  </span>
+                </Label>
+                <Input id="transferFromFrom" placeholder="From address"></Input>
+                <Input id="transferFromTo" placeholder="To address"></Input>
+                <Input id="transferFromBalance" placeholder="Amount" type="number"></Input>
+                <Button id='transferFromBtn' color="primary" onClick={transferFrom}>Submit</Button>
+                <Input id="transferFromResult" disabled></Input>
+              </FormGroup>
+            </Form>
+          </Col>
+          <Col md='2'></Col>
+        </Row>
       </main>
     </div>
   )
