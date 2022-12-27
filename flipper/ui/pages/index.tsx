@@ -104,8 +104,8 @@ const Home: NextPage = () => {
               <Button id='submitBtn' onClick={submitSmartContractAddress} color='primary'>Submit</Button>
               <h3>Smart Contract Address</h3>
               <Input id="smartContractOutput" disabled></Input>
-              <h3>Value: <div id="flipOutput">{value}</div></h3>
-              <h3>Press button below to flip the value</h3>
+              <h3>Value: <span id="flipOutput">{value}</span></h3>
+              <h4>Press the button below to flip the value</h4>
               <Button id='flipBtn' onClick={flip} color='primary'>Flip</Button>
             </Col>
             <Col md='2'></Col>

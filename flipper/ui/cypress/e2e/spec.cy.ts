@@ -1,5 +1,5 @@
 describe('Flipper', () => {
-  const contractAddress = "5Fh6cF6VD6mztrfqj4gLA3xzWzE9urCpHGiXBJPy1Vi2SDiE";
+  const contractAddress = "5EM37LcaD9RJLLHnoJexWjVZ6ECb5bDVp2qjqusmAtiWoyqS";
   it('opens up webpage successfully', () => {
     cy.visit('http://127.0.0.1:3000/')
   });
@@ -9,7 +9,7 @@ describe('Flipper', () => {
   });
   it('clicks on the flip button to check the output', () => {
     cy.get('#flipBtn').click();
-    cy.get('#flipOutput').invoke('text').should("eq", "true" || "false");
+    cy.get('#flipOutput').invoke('text').should('match', /^(true|false)$/);
   });
 });
 
