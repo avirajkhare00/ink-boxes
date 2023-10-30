@@ -21,3 +21,7 @@ Q. ERROR: No 'ink_lang' dependency found
 
 A. This should do the trick for you: `cargo install cargo-contract --version 2.0.0-alpha.5`
 
+
+### TODO
+ - [ ] Create CI file so that builds can be directly pushed on Netlify.
+ - [ ] Check for Rust crates, need to create better solution for it.
